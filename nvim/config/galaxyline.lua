@@ -102,7 +102,7 @@ section.left[2] = {
   FileIcon = {
     provider = 'FileIcon',
     condition = buffer_not_empty,
-    highlight = { require('galaxyline.provider_fileinfo').get_file_icon_color, colors.bg_highlight },
+    highlight = { require('galaxyline.providers.fileinfo').get_file_icon_color, colors.bg_highlight },
   },
 }
 
@@ -185,7 +185,7 @@ section.left[12] = {
 section.right[1] = {
   GitIcon = {
     provider = function() return '   ' end,
-    condition = require('galaxyline.provider_vcs').check_git_workspace,
+    condition = require('galaxyline.providers.vcs').check_git_workspace,
     highlight = {colors.green,colors.section_bg},
   }
 }
@@ -193,7 +193,7 @@ section.right[1] = {
 section.right[2] = {
   GitBranch = {
     provider = 'GitBranch',
-    condition = require('galaxyline.provider_vcs').check_git_workspace,
+    condition = require('galaxyline.providers.vcs').check_git_workspace,
     highlight = {colors.green,colors.section_bg},
   }
 }
@@ -229,7 +229,7 @@ section.short_line_left[2] = {
     condition = buffer_not_empty,
     separator = ' ',
     highlight = { colors.fg, colors.bg_inactive },
-    separator_highlight = { require('galaxyline.provider_fileinfo').get_file_icon_color,  colors.bg_inactive },
+    separator_highlight = { require('galaxyline.providers.fileinfo').get_file_icon_color,  colors.bg_inactive },
   }
 }
 section.short_line_left[3] = {
