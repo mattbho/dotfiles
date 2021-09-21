@@ -1,6 +1,6 @@
 local vim = vim
 local galaxyline = require('galaxyline')
-
+local condition = require("galaxyline.condition")
 local section = galaxyline.section
 
 local onedark = {
@@ -48,10 +48,6 @@ local colors = {
   red = onedark.red,
   black = onedark.black,
 }
-
-local buffer_not_empty = function()
-  return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
-end
 
 local mode_color = function()
   local mode_colors = {
@@ -101,7 +97,7 @@ section.left[1] = {
 section.left[2] = {
   FileIcon = {
     provider = 'FileIcon',
-    condition = buffer_not_empty,
+    condition = condition.buffer_not_empty,
     highlight = { require('galaxyline.providers.fileinfo').get_file_icon_color, colors.bg_highlight },
   },
 }
@@ -109,24 +105,16 @@ section.left[2] = {
 section.left[3] = {
   FileName = {
     provider = {'FileName','FileSize'},
-    condition = buffer_not_empty,
+    condition = condition.buffer_not_empty,
     highlight = { colors.fg, colors.bg_highlight },
     separator_highlight = {colors.bg_highlight, colors.bg_highlight },
   }
 }
 
-local checkwidth = function()
-  local squeeze_width  = vim.fn.winwidth(0) / 2
-  if squeeze_width > 40 then
-    return true
-  end
-  return false
-end
-
 section.left[4] = {
   DiffAdd = {
       provider = 'DiffAdd',
-      condition = checkwidth,
+      condition = condition.hide_in_width,
       icon = '   ',
       highlight = { colors.orange, colors.section_bg },
     }
@@ -135,7 +123,7 @@ section.left[4] = {
 section.left[5] = {
   DiffModified = {
     provider = 'DiffModified',
-    condition = checkwidth,
+    condition = condition.hide_in_width,
     icon = ' ',
     highlight = {colors.orange,colors.section_bg},
   }
@@ -144,7 +132,7 @@ section.left[5] = {
 section.left[6] = {
   DiffRemove = {
     provider = 'DiffRemove',
-    condition = checkwidth,
+    condition = condition.hide_in_width,
     icon = ' ',
     highlight = {colors.red,colors.section_bg},
   }
@@ -185,7 +173,7 @@ section.left[12] = {
 section.right[1] = {
   GitIcon = {
     provider = function() return '   ' end,
-    condition = require('galaxyline.providers.vcs').check_git_workspace,
+    condition = condition.check_git_workspace,
     highlight = {colors.green,colors.section_bg},
   }
 }
@@ -193,7 +181,7 @@ section.right[1] = {
 section.right[2] = {
   GitBranch = {
     provider = 'GitBranch',
-    condition = require('galaxyline.providers.vcs').check_git_workspace,
+    condition = condition.check_git_workspace,
     highlight = {colors.green,colors.section_bg},
   }
 }
@@ -226,7 +214,7 @@ section.short_line_left[1] = {
 section.short_line_left[2] = {
   FileIconInactive = {
     provider = 'FileIcon',
-    condition = buffer_not_empty,
+    condition = condition.buffer_not_empty,
     separator = ' ',
     highlight = { colors.fg, colors.bg_inactive },
     separator_highlight = { require('galaxyline.providers.fileinfo').get_file_icon_color,  colors.bg_inactive },
