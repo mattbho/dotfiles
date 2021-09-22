@@ -33,14 +33,17 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local path_to_elixirls = vim.fn.expand("~/.elixir-ls/release/language_server.sh")
 
-nvim_lsp.tsserver.setup{
-  on_attach=on_attach,
-  capabilities = capabilities
-}
+local servers = { 'tsserver', 'graphql', 'html', 'jsonls', 'cssls' }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup{
+    on_attach = on_attach,
+    capabilities = capabilities
+  }
+end
 
 nvim_lsp.elixirls.setup{
-  cmd={path_to_elixirls},
-  on_attach=on_attach,
+  cmd = {path_to_elixirls},
+  on_attach = on_attach,
   capabilities = capabilities,
   settings = {
     elixirLS = {
