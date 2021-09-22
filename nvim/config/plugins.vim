@@ -3,6 +3,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/dashboard-nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'L3MON4D3/LuaSnip'
 Plug 'onsails/lspkind-nvim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
