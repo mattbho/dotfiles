@@ -50,9 +50,21 @@ nvim_lsp.elixirls.setup{
 }
 
 local cmp = require 'cmp'
+local lspkind = require 'lspkind'
 cmp.setup {
   completion = {
     completeopt='menu,menuone,noinsert',
+  },
+  formatting = {
+    format= function(entry, vim_item)
+      vim_item.kind = lspkind.presets.default[vim_item.kind] .. " " .. vim_item.kind
+
+      vim_item.menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+      })[entry.source.name]
+      return vim_item
+    end
   },
   snippet = {
     expand = function(args)
@@ -89,4 +101,3 @@ cmp.setup {
     { name = 'nvim_lsp' }
   },
 }
-

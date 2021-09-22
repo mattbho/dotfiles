@@ -3,6 +3,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/dashboard-nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'onsails/lspkind-nvim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
