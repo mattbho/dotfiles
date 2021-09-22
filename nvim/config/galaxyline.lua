@@ -155,18 +155,34 @@ section.left[8] = {
   }
 }
 
-section.left[11] = {
+section.left[9] = {
   Space = {
     provider = function () return ' ' end,
      highlight = {colors.section_bg,colors.section_bg}
   }
 }
 
-section.left[12] = {
+section.left[10] = {
   DiagnosticWarn = {
     provider = 'DiagnosticWarn',
     icon = '  ',
     highlight = {colors.cyan,colors.section_bg},
+  }
+}
+
+section.left[12] = {
+  DiagnosticInfo = {
+    provider = 'DiagnosticInfo',
+    icon = '  ',
+    highlight = {colors.green, colors.section_bg},
+  }
+}
+
+section.left[13] = {
+  DiagnosticHint = {
+    provider = 'DiagnosticHint',
+    icon = '  ',
+    highlight = {colors.fg, colors.section_bg}
   }
 }
 

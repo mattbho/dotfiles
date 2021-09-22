@@ -21,6 +21,14 @@ set hlsearch
 set incsearch
 set confirm
 set noswapfile
+set encoding=utf-8
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 
 filetype off                 
 let g:dashboard_default_executive ='telescope'

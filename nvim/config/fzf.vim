@@ -32,7 +32,7 @@ require'fzf-lua'.setup {
       wrap            = false,        -- wrap lines?
       syntax          = false,         -- preview syntax highlight?
       syntax_limit_l  = 0,            -- syntax limit (lines), 0=nolimit
-      syntax_limit_b  = 0,    -- syntax limit (bytes), 0=nolimit
+      syntax_limit_b  = 1024*1024,    -- syntax limit (bytes), 0=nolimit
       expand          = false,        -- preview max size?
       hl_cursor       = 'Cursor',     -- cursor highlight
       hl_cursorline   = 'CursorLine', -- cursor line highlight
