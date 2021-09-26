@@ -1,7 +1,5 @@
 # My Development Environment
 - Features One Dark, Tmux, Nvim, and Kitty terminal
-### Experimental (NativeLSP)
-- Swapped COC for NativeLSP, using nvim-cmp as an autocomplete provider. See the NativeLSP branch for the implementation.
 
 ## Screenshots
 ### Neovim One Dark
