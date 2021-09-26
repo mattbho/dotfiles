@@ -171,18 +171,19 @@ section.left[10] = {
 }
 
 section.left[12] = {
+  DiagnosticHint = {
+    provider = 'DiagnosticHint',
+    icon = '  ',
+    highlight = {colors.fg_focus, colors.section_bg}
+  }
+}
+
+
+section.left[13] = {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
     icon = '  ',
     highlight = {colors.green, colors.section_bg},
-  }
-}
-
-section.left[13] = {
-  DiagnosticHint = {
-    provider = 'DiagnosticHint',
-    icon = '  ',
-    highlight = {colors.fg, colors.section_bg}
   }
 }
 
