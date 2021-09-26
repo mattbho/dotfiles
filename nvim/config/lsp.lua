@@ -91,7 +91,7 @@ local luasnip = require 'luasnip'
 
 cmp.setup {
   completion = {
-    completeopt='menu,menuone,noinsert',
+    completeopt='menu,menuone,noinsert,noselect',
   },
   formatting = {
     format= function(entry, vim_item)

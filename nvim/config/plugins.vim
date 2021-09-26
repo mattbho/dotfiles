@@ -5,6 +5,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'onsails/lspkind-nvim'
+Plug 'folke/lsp-colors.nvim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
