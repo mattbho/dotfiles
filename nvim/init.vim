@@ -4,7 +4,6 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 source ~/.config/nvim/config/plugins.vim
 source ~/.config/nvim/config/misc.vim
 source ~/.config/nvim/config/ale.vim
-" source ~/.config/nvim/config/coc.vim
 source ~/.config/nvim/config/lsp.lua
 source ~/.config/nvim/config/fzf.vim
 source ~/.config/nvim/config/galaxyline.lua
