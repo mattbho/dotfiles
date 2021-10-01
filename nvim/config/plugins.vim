@@ -21,13 +21,11 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'navarasu/onedark.nvim'
-Plug 'tpope/vim-jdaddy', { 'for': 'json' }
 Plug 'ibhagwan/fzf-lua'
 Plug 'vijaymarupudi/nvim-fzf'
 Plug 'tpope/vim-commentary'
 Plug 'elixir-editors/vim-elixir'
 Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'windwp/nvim-ts-autotag'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
