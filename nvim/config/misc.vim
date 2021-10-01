@@ -44,8 +44,6 @@ let g:dashboard_custom_header =[
     \'   █   █  █      ▄▄           ▄▀   ',
     \]
 let g:jsx_ext_required = 1
-" let g:ale_fix_on_save = 1
-let g:mix_format_on_save = 1
 let g:onedark_termcolors=256
 let g:onedark_hide_endofbuffer=1
 colorscheme onedark

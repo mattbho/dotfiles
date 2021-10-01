@@ -85,6 +85,22 @@ require'lspconfig'.sumneko_lua.setup {
     }
 }
 
+
+local null_ls = require("null-ls")
+
+local sources = {
+  require("null-ls.helpers").conditional(function(utils)
+        return utils.root_has_file(".pretterrc.js") and null_ls.builtins.formatting.prettier or null_ls.builtins.formatting.eslint
+    end),
+  null_ls.builtins.formatting.mix,
+  null_ls.builtins.diagnostics.eslint,
+}
+
+null_ls.config({sources = sources})
+require("lspconfig")["null-ls"].setup({
+    on_attach = on_attach
+})
+
 local cmp = require 'cmp'
 local lspkind = require 'lspkind'
 local luasnip = require 'luasnip'

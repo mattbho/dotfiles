@@ -1,5 +1,6 @@
 lua <<EOF
 require'fzf-lua'.setup {
+  default_previewer = "bat",
   previewers = {
     bat = {
       cmd             = "bat",
