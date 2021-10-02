@@ -53,6 +53,7 @@ autocmd StdinReadPre * let s:std_in=1
 highlight Normal ctermbg=None
 highlight LineNr ctermfg=DarkGrey
 noremap Y "+y
+noremap <silent> gb <cmd>Gitsigns blame_line<CR>
 lua <<EOF
 require'shade'.setup({
   overlay_opacity = 50,
