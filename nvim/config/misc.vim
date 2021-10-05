@@ -32,17 +32,26 @@ set signcolumn=yes
 
 filetype off                 
 let g:dashboard_default_executive ='telescope'
-let g:dashboard_custom_header =[
-    \'          ▀████▀▄▄              ▄█ ',
-    \'            █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ ',
-    \'    ▄        █          ▀▀▀▀▄  ▄▀  ',
-    \'   ▄▀ ▀▄      ▀▄              ▀▄▀  ',
-    \'  ▄▀    █     █▀   ▄█▀▄      ▄█    ',
-    \'  ▀▄     ▀▄  █     ▀██▀     ██▄█   ',
-    \'   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ',
-    \'    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ',
-    \'   █   █  █      ▄▄           ▄▀   ',
-    \]
+let g:dashboard_custom_header = [
+\ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+\ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+\ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+\ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+\ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+\ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+\]
+lua <<EOF
+local g = vim.g
+g.dashboard_session_directory = '~/.config/nvim/.sessions'g.dashboard_custom_section = {
+    a = {description = {"  Find File                "}, command = "Telescope find_files"},
+    b = {description = {"  Recents                  "}, command = "Telescope oldfiles"},
+    c = {description = {"  Find Word                "}, command = "Telescope live_grep"},
+    d = {description = {"  New File                 "}, command = "DashboardNewFile"},
+    g = {description = {"  Update Plugins           "}, command = "PlugUpdate"},
+    h = {description = {"  Settings                 "}, command = "edit $MYVIMRC"},
+    i = {description = {"  Exit                     "}, command = "exit"}
+    }
+EOF
 let g:jsx_ext_required = 1
 let g:onedark_termcolors=256
 let g:onedark_hide_endofbuffer=1
