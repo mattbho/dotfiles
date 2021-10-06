@@ -1,10 +1,8 @@
 local nvim_lsp = require('lspconfig')
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  client.resolved_capabilities.document_formatting = false
-  client.resolved_capabilities.document_range_formatting = false
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -87,10 +85,11 @@ require'lspconfig'.sumneko_lua.setup {
 local null_ls = require("null-ls")
 
 local sources = {
-  require("null-ls.helpers").conditional(function(utils)
-        return utils.root_has_file(".pretterrc.js") and null_ls.builtins.formatting.prettier or null_ls.builtins.formatting.eslint
-    end),
+  null_ls.builtins.formatting.eslint,
   null_ls.builtins.formatting.mix,
+  null_ls.builtins.formatting.prettier.with({
+    filetypes = { "css", "scss", "html", "json", "yaml", "markdown" }
+  }),
   null_ls.builtins.diagnostics.eslint,
   null_ls.builtins.code_actions.gitsigns,
 }

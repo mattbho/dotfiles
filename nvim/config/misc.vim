@@ -1,3 +1,11 @@
+lua <<EOF
+require'shade'.setup({
+  overlay_opacity = 50,
+  opacity_step = 1
+})
+require('gitsigns').setup()
+require('onedark').setup()
+EOF
 set nowrap
 set ignorecase
 set smartcase
@@ -52,22 +60,10 @@ g.dashboard_session_directory = '~/.config/nvim/.sessions'g.dashboard_custom_sec
     i = {description = {"  Exit                     "}, command = "exit"}
     }
 EOF
-let g:jsx_ext_required = 1
-let g:onedark_termcolors=256
-let g:onedark_hide_endofbuffer=1
-colorscheme onedark
 syntax on
 filetype plugin indent on
+hi LineNr ctermbg=NONE guibg=NONE 
+hi NonText guifg=bg
 autocmd StdinReadPre * let s:std_in=1
-highlight Normal ctermbg=None
-highlight LineNr ctermfg=DarkGrey
 noremap Y "+y
 noremap <silent> gb <cmd>Gitsigns blame_line<CR>
-lua <<EOF
-require'shade'.setup({
-  overlay_opacity = 50,
-  opacity_step = 1
-})
-require('gitsigns').setup()
-EOF
-
