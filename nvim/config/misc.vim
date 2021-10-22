@@ -1,10 +1,12 @@
 lua <<EOF
-require'shade'.setup({
-  overlay_opacity = 50,
-  opacity_step = 1
-})
 require('gitsigns').setup()
-require('onedark').setup()
+local onedarkpro = require('onedarkpro')
+onedarkpro.setup({
+  colors = {
+    bg = '#282c34'
+  }
+})
+onedarkpro.load()
 EOF
 set nowrap
 set ignorecase

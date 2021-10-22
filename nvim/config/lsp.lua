@@ -43,7 +43,7 @@ nvim_lsp.elixirls.setup{
   capabilities = capabilities,
   settings = {
     elixirLS = {
-      dialyzerEnabled = false
+      dialyzerEnabled = true
     }
   }
 }
@@ -110,9 +110,10 @@ cmp.setup {
   },
   formatting = {
     format = lspkind.cmp_format({with_text = true, menu = ({
-      buffer = "[Buffer]",
       nvim_lsp = "[LSP]",
+      buffer = "[Buffer]",
       luasnip = "[LuaSnip]",
+      path = "[Path]",
     })}),
   },
   mapping = {
@@ -141,5 +142,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'buffer' },
+    { name = 'path' },
   },
 }
