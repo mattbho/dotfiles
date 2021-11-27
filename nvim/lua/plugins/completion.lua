@@ -1,12 +1,12 @@
-local cmp = require "cmp"
-local lspkind = require "lspkind"
+local cmp = require("cmp")
+local lspkind = require("lspkind")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require"cmp_nvim_lsp".update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 cmp.setup {
   snippet = {
     expand = function(args)
-      require"luasnip".lsp_expand(args.body)
+      require("luasnip").lsp_expand(args.body)
     end
   },
   formatting = {

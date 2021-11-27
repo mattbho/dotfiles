@@ -1,5 +1,5 @@
-local nvim_lsp = require "lspconfig"
-local utils = require "utils"
+local nvim_lsp = require("lspconfig")
+local utils = require("utils")
 local nnoremap = utils.nnoremap
 
 local on_attach = function(_, bufnr)
@@ -49,7 +49,7 @@ local sumneko_binary = ""
 sumneko_root_path = "/Users/" .. USER .. "/.config/nvim/lua-language-server"
 sumneko_binary = "/Users/" .. USER .. "/.config/nvim/lua-language-server/bin/macOS/lua-language-server"
 
-require"lspconfig".sumneko_lua.setup {
+require("lspconfig").sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
     on_attach = on_attach,
     capabilities = capabilities,
@@ -74,7 +74,7 @@ require"lspconfig".sumneko_lua.setup {
     }
 }
 
-local null_ls = require "null-ls"
+local null_ls = require("null-ls")
 
 local sources = {
   null_ls.builtins.formatting.eslint,

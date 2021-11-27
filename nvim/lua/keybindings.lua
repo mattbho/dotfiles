@@ -1,11 +1,5 @@
 local utils = require("utils")
-local nmap = utils.nmap
-local vmap = utils.vmap
-local imap = utils.imap
-local xmap = utils.xmap
-local omap = utils.omap
 local nnoremap = utils.nnoremap
-local inoremap = utils.inoremap
 local vnoremap = utils.vnoremap
 
 -- Yank to clipboard

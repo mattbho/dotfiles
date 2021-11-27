@@ -11,7 +11,9 @@ g.nvim_tree_disable_window_picker = 1
 require("nvim-tree").setup{
   view = {
     width = 45,
-    side = 'right',
+    side = "right",
   }
 }
-nnoremap('<C-n>', ':NvimTreeToggle<CR>')
+nnoremap("<C-n>", ":NvimTreeToggle<CR>")
+nmap("nf", ":NvimTreeFindFile<CR>")
+nmap("nr", ":NvimTreeRefresh<CR>")
