@@ -60,8 +60,11 @@ require("packer").startup(function(use)
   }
   use {
     "TimUntersberger/neogit",
-    requires = "nvim-lua/plenary.nvim",
-    config = function () require("neogit").setup() end
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim"
+    },
+    config = function () require("neogit").setup({integrations = {diffview = true}}) end
   }
   -- Theme
   use {
@@ -79,7 +82,7 @@ require("packer").startup(function(use)
     "vim-test/vim-test",
     config = [[ require("plugins.vimtest")]]
   }
-  use "christoomey/vim-tmux-navigator"
+  use "aserowy/tmux.nvim"
   use "nathom/filetype.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
