@@ -10,7 +10,7 @@ require("packer").startup(function(use)
   -- LSP
   use {
     "neovim/nvim-lspconfig",
-      config = [[ require("plugins.lsp") ]]
+     config = [[ require("plugins.lsp") ]]
   }
   use "jose-elias-alvarez/null-ls.nvim"
   -- Completion
@@ -37,7 +37,7 @@ require("packer").startup(function(use)
     },
     config = [[ require("plugins.telescope") ]]
   }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {"nvim-telescope/telescope-fzf-native.nvim", run = "make" }
   use {
     "glepnir/dashboard-nvim",
     config = [[ require("plugins.dashboard") ]]
@@ -49,8 +49,8 @@ require("packer").startup(function(use)
     requires = {
         "windwp/nvim-ts-autotag",
         "p00f/nvim-ts-rainbow",
-      },
-      config = [[ require('plugins/treesitter') ]]
+    },
+    config = [[ require("plugins/treesitter") ]]
   }
   use "elixir-editors/vim-elixir"
   -- Git
@@ -58,8 +58,11 @@ require("packer").startup(function(use)
     "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" },
     config = function() require("gitsigns").setup() end
   }
-  use "tpope/vim-fugitive"
-  use "junegunn/gv.vim"
+  use {
+    "TimUntersberger/neogit",
+    requires = "nvim-lua/plenary.nvim",
+    config = function () require("neogit").setup() end
+  }
   -- Theme
   use {
     "olimorris/onedarkpro.nvim",
@@ -71,13 +74,12 @@ require("packer").startup(function(use)
     config = [[ require("plugins.galaxyline")]]
   }
   -- Tools
-  use "tpope/vim-commentary"
+  use "b3nj5m1n/kommentary"
   use {
     "vim-test/vim-test",
     config = [[ require("plugins.vimtest")]]
   }
   use "christoomey/vim-tmux-navigator"
-  use "simeji/winresizer"
   use "nathom/filetype.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
