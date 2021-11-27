@@ -82,7 +82,10 @@ require("packer").startup(function(use)
     "vim-test/vim-test",
     config = [[ require("plugins.vimtest")]]
   }
-  use "aserowy/tmux.nvim"
+  use {
+    "aserowy/tmux.nvim",
+    config = function () require("tmux").setup({navigation = {enable_default_keybindings = true}}) end
+  }
   use "nathom/filetype.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

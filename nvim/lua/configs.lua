@@ -34,6 +34,7 @@ set.updatetime = 300
 set.shortmess = "atToOFc"
 set.signcolumn = "yes"
 set.hlsearch = false
+set.lazyredraw = true
 
 cmd [[syntax on]]
 cmd [[filetype plugin indent on]]
