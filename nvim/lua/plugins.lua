@@ -105,12 +105,6 @@ require("packer").startup(function(use)
 		config = [[ require("plugins.lualine")]],
 	})
 	-- Tools
-	use({
-		"folke/zen-mode.nvim",
-		config = function()
-			require("zen-mode").setup()
-		end,
-	})
 	use("b3nj5m1n/kommentary")
 	use({
 		"vim-test/vim-test",
@@ -140,22 +134,6 @@ require("packer").startup(function(use)
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("colorizer").setup()
-		end,
-	})
-	use({
-		"rmagatti/auto-session",
-		config = function()
-			require("auto-session").setup({
-				log_level = "info",
-				auto_session_suppress_dirs = { "~/", "~/.config" },
-			})
-		end,
-	})
-	use({
-		"rmagatti/session-lens",
-		requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
-		config = function()
-			require("session-lens").setup({ path_display = { "shorten" } })
 		end,
 	})
 	-- Automatically set up your configuration after cloning packer.nvim

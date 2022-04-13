@@ -7,7 +7,7 @@ local sources = {
 		filetypes = { "css", "scss", "html", "json", "yaml", "markdown" },
 	}),
 	null_ls.builtins.formatting.stylua,
-	null_ls.builtins.diagnostics.eslint,
+	null_ls.builtins.diagnostics.eslint_d,
 	null_ls.builtins.diagnostics.credo,
 	null_ls.builtins.code_actions.gitsigns,
 }
