@@ -14,6 +14,7 @@ local on_attach = function(_, bufnr)
 	nnoremap("<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	nnoremap("<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	nnoremap("[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+	nnoremap("<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	nnoremap("]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 	nnoremap("<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 	nnoremap("<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
@@ -28,6 +29,7 @@ for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
+		single_file_support = true,
 	})
 end
 
@@ -63,8 +65,8 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require("lspconfig").sumneko_lua.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
+	on_attach = on_attach,
+	capabilities = capabilities,
 	settings = {
 		Lua = {
 			runtime = {

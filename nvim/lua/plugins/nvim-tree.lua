@@ -1,14 +1,14 @@
 local nnoremap = require("utils").nnoremap
 local nmap = require("utils").nmap
-local g = vim.g
-
-g.nvim_tree_git_hl = 1
-g.nvim_tree_highlight_opened_files = 1
 
 require("nvim-tree").setup({
 	view = {
+		adaptive_size = true,
 		width = 45,
 		side = "right",
+	},
+	diagnostics = {
+		enable = true,
 	},
 	filters = {
 		dotfiles = true,
@@ -25,6 +25,8 @@ require("nvim-tree").setup({
 		},
 	},
 	renderer = {
+    highlight_git = true,
+    highlight_opened_files = "all",
 		indent_markers = {
 			enable = true,
 		},

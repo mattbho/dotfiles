@@ -1,8 +1,11 @@
 local set = vim.opt
 local cmd = vim.cmd
 local o = vim.o
+local g = vim.g
 local wo = vim.wo
 
+g.do_filetype_lua = 1
+g.did_load_filetypes = 0
 o.termguicolors = true
 wo.wrap = false
 set.ignorecase = true
@@ -33,6 +36,9 @@ set.shortmess = "atToOFc"
 set.signcolumn = "yes"
 set.hlsearch = true
 set.lazyredraw = true
+set.splitright = true
+set.splitbelow = true
+set.laststatus = 3
 
 cmd([[syntax on]])
 cmd([[filetype plugin indent on]])
