@@ -14,10 +14,15 @@ end
 require("packer").startup(function(use)
 	-- Manage self
 	use("wbthomason/packer.nvim")
+	use("nvim-tree/nvim-web-devicons")
 	-- LSP
 	use({
 		"neovim/nvim-lspconfig",
 		config = [[ require("plugins.lsp") ]],
+	})
+	use({
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
 	})
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
@@ -70,7 +75,15 @@ require("packer").startup(function(use)
 		},
 		config = [[ require("plugins/treesitter") ]],
 	})
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	})
+
 	use("elixir-editors/vim-elixir")
+	use("prisma/vim-prisma")
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		config = [[ require("plugins.indent-blankline") ]],
@@ -96,8 +109,7 @@ require("packer").startup(function(use)
 	use("tpope/vim-fugitive")
 	-- Theme
 	use({
-		"olimorris/onedarkpro.nvim",
-		config = [[ require("plugins.colorscheme")]],
+		"neanias/everforest-nvim",
 	})
 	use({
 		"nvim-lualine/lualine.nvim",

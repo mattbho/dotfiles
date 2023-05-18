@@ -4,14 +4,12 @@ local o = vim.o
 local g = vim.g
 local wo = vim.wo
 
-g.do_filetype_lua = 1
-g.did_load_filetypes = 0
 o.termguicolors = true
 wo.wrap = false
 set.ignorecase = true
 set.smartcase = true
 set.autoindent = true
-set.smartindent = true
+-- set.smartindent = true
 set.expandtab = true
 set.tabstop = 2
 set.softtabstop = 2
@@ -45,3 +43,5 @@ cmd([[filetype plugin indent on]])
 cmd([[highlight LineNr ctermbg=NONE guibg=NONE]])
 cmd([[highlight NonText ctermfg=19 guifg=#333333]])
 cmd([[autocmd StdinReadPre * let s:std_in=1]])
+vim.cmd([[colorscheme everforest]])
+

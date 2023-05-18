@@ -17,33 +17,40 @@ local on_attach = function(_, bufnr)
 	nnoremap("<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 	nnoremap("]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 	nnoremap("<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-	nnoremap("<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	nnoremap("<space>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 end
 
 local path_to_elixirls = vim.fn.expand("~/elixirls/release/language_server.sh")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local servers = { "tsserver", "graphql", "jsonls", "cssls", "hls" }
-for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp].setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		single_file_support = true,
-	})
-end
+require("mason").setup()
+require("mason-lspconfig").setup()
 
-nvim_lsp.html.setup({
+nvim_lsp.tsserver.setup({
+	on_attach = on_attach,
+	-- filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+	cmd = { "typescript-language-server", "--stdio" },
+})
+
+nvim_lsp.tailwindcss.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	init_options = {
-		embeddedLanguages = {
-			css = true,
-			javascript = true,
-			elixir = true,
-			heex = true,
-		},
-	},
+})
+
+nvim_lsp.pyright.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.cssls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+nvim_lsp.prismals.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 nvim_lsp.elixirls.setup({
@@ -58,22 +65,12 @@ nvim_lsp.elixirls.setup({
 	},
 })
 
-USER = vim.fn.expand("$USER")
-
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-require("lspconfig").sumneko_lua.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
+nvim_lsp.lua_ls.setup({
 	settings = {
 		Lua = {
 			runtime = {
 				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
 				version = "LuaJIT",
-				-- Setup your lua path
-				path = runtime_path,
 			},
 			diagnostics = {
 				-- Get the language server to recognize the `vim` global
