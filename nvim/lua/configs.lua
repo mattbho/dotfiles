@@ -1,47 +1,23 @@
-local set = vim.opt
-local cmd = vim.cmd
-local o = vim.o
-local g = vim.g
-local wo = vim.wo
+require("telescope").load_extension("fzf")
+require("telescope").setup({})
+local colors = require("catppuccin.palettes").get_palette()
+local TelescopeColor = {
+  TelescopeMatching = { fg = colors.flamingo },
+  TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
 
-o.termguicolors = true
-wo.wrap = false
-set.ignorecase = true
-set.smartcase = true
-set.autoindent = true
--- set.smartindent = true
-set.expandtab = true
-set.tabstop = 2
-set.softtabstop = 2
-set.shiftwidth = 2
-set.compatible = false
-set.shell = "zsh"
-set.number = true
-set.ruler = true
-set.wildmenu = true
-set.wildmode = { "list", "longest", "full" }
-set.errorbells = false
-set.visualbell = true
-set.incsearch = true
-set.confirm = true
-set.swapfile = false
-set.encoding = "utf-8"
-set.backup = false
-set.writebackup = false
-set.cmdheight = 2
-set.updatetime = 300
-set.shortmess = "atToOFc"
-set.signcolumn = "yes"
-set.hlsearch = true
-set.lazyredraw = true
-set.splitright = true
-set.splitbelow = true
-set.laststatus = 3
+  TelescopePromptPrefix = { bg = colors.surface0 },
+  TelescopePromptNormal = { bg = colors.surface0 },
+  TelescopeResultsNormal = { bg = colors.mantle },
+  TelescopePreviewNormal = { bg = colors.mantle },
+  TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
+  TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
+  TelescopePreviewBorder = { bg = colors.mantle, fg = colors.mantle },
+  TelescopePromptTitle = { bg = colors.pink, fg = colors.mantle },
+  TelescopeResultsTitle = { fg = colors.mantle },
+  TelescopePreviewTitle = { bg = colors.green, fg = colors.mantle },
+}
 
-cmd([[syntax on]])
-cmd([[filetype plugin indent on]])
-cmd([[highlight LineNr ctermbg=NONE guibg=NONE]])
-cmd([[highlight NonText ctermfg=19 guifg=#333333]])
-cmd([[autocmd StdinReadPre * let s:std_in=1]])
-vim.cmd([[colorscheme everforest]])
+for hl, col in pairs(TelescopeColor) do
+  vim.api.nvim_set_hl(0, hl, col)
+end
 
