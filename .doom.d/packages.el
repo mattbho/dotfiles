@@ -8,8 +8,6 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;; (package! some-package)
-(package! exec-path-from-shell)
-
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
@@ -49,6 +47,17 @@
 ;; ...or multiple packages
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
-;; (unpin!
-(package! catppuccin-theme)
-(package! org-superstar)
+;; (unpin! t)
+
+(unpin! org-roam)
+(package! org-roam-ui)
+(package! websocket)
+(package! gptel)
+(package! fireplace)
+(package! zoom)
+(package! prettier-js)
+(package! magit-delta)
+(package! codeium :recipe (:host github :repo "Exafunction/codeium.el"))
+
+;; delta
+;; fireplace
